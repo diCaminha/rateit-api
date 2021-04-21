@@ -6,6 +6,6 @@ class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = (MovieSerializer)
 
-class MovieViewSet(viewsets.ModelViewSet):
+class RatingViewSet(viewsets.ModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = (RatingSerializer)
