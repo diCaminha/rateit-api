@@ -7,7 +7,7 @@ class Movie(models.Model):
     description = models.TextField(max_length=360)
 
     def qnt_ratings(self):
-        ratings = Rating.objects.get(movie=self)
+        ratings = Rating.objects.filter(movie=self)
         return len(ratings)
 
 class Rating(models.Model):
