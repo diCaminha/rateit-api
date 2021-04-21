@@ -10,5 +10,5 @@ router.register('movies', MovieViewSet)
 router.register('ratings', RatingViewSet)
 
 urlpatterns = [
-    path('new/', include(router.urls)),
+    path('', include(router.urls)),
 ]
