@@ -3,12 +3,18 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from .models import Movie, Rating
-from .serializers import MovieSerializer, RatingSerializer
+from .serializers import MovieSerializer, MovieDetailSerializer, RatingSerializer
 
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
-    serializer_class = (MovieSerializer)
     authentication_classes = (TokenAuthentication,)
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return MovieSerializer
+        if self.action == 'retrieve':
+            return MovieDetailSerializer
+        return MovieDetailSerializers
 
     @action(detail=True, methods=['POST'])
     def rate_movie(self, request, pk=None):
