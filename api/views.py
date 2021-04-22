@@ -14,7 +14,7 @@ class MovieViewSet(viewsets.ModelViewSet):
             return MovieSerializer
         if self.action == 'retrieve':
             return MovieDetailSerializer
-        return MovieDetailSerializers
+        return MovieDetailSerializer
 
     @action(detail=True, methods=['POST'])
     def rate_movie(self, request, pk=None):
